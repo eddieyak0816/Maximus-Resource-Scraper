@@ -1,0 +1,77 @@
+{
+  "name": "maximus-resource-scraper",
+  "version": "1.0.0",
+  "description": "A desktop application for aggregating content from multiple sources, generating AI-powered summaries, and transforming them into podcasts, videos, and interactive documents.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "concurrently \"npm run dev:react\" \"wait-on http://localhost:3000 && cross-env NODE_ENV=development electron .\"",
+    "dev:react": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "homepage": "./",
+  "author": "Maximus Digital Marketing",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.0",
+    "dotenv": "^17.3.1",
+    "electron": "^28.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "sqlite3": "^5.1.7",
+    "youtube-transcript": "^1.2.1"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.3.0",
+    "@testing-library/user-event": "^13.5.0",
+    "concurrently": "^8.2.0",
+    "cross-env": "^10.1.0",
+    "electron-builder": "^24.6.0",
+    "wait-on": "^7.0.1"
+  },
+  "build": {
+    "appId": "com.maximus.resourcesscraper",
+    "productName": "Maximus Resource Scraper",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "build/**/*",
+      "node_modules/**/*",
+      "main.js"
+    ],
+    "mac": {
+      "category": "public.app-category.productivity"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
